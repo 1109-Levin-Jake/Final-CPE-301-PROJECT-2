@@ -1,1 +1,23 @@
+// Jake Levin & George Kremastas ( Final Project)
 
+#include <LiquidCrystal.h>
+  #include <DHT.h>
+  #include <DHT_U.h>
+  #include <Stepper.h>
+  
+  #define DHTPIN 7
+  #define DHTTYPE DHT11
+  #define tempMax 78
+
+  const int buttonPin = 2;
+  const int motorPin = 18;
+  const int fanPin = 20;
+  const int rPin = 14;
+  const int gPin = 15;
+  const int bPin = 16;
+
+
+  bool buttonPressed;
+
+  int lastButtonState;
+  int currentButtonState;

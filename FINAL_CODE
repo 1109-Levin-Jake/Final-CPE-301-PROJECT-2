@@ -100,3 +100,33 @@ void loop() {
  {
    motor_move();
  }
+
+
+// if (buttonState != HIGH){
+
+  lcd.setCursor(12,1);
+  lcd.print("%");
+
+  delay(550);
+  lcd.setCursor(13,0);
+  lcd.print("<");
+  delay(50);
+  lcd.setCursor(14,0);
+  lcd.print("-");
+  delay(50);
+  lcd.setCursor(15,0);
+  lcd.print("-");
+  delay(50);
+  lcd.setCursor(15,1);
+  lcd.print("-");
+  delay(50);
+  lcd.setCursor(14,1);
+  lcd.print("-");
+  delay(50);
+  lcd.setCursor(13,1);
+  lcd.print("<");
+
+  lcd.setCursor(12,0);
+  lcd.print(" ");
+  float f = DHT.Humidity;
+  float c = DHT.Temperature;

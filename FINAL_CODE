@@ -131,7 +131,12 @@ void loop() {
   float f = DHT.Humidity;
   float c = DHT.Temperature;
 
-    
+//We are believed to have an error/fault in the sensor 
+//as stated in the video, we discussed this with Prof. Anima 
+//who suggested an edit to this portion of the code above however, 
+//when we edited the code (which adheres to her recommendation) that 
+//did not fix our issue when we tried it.    
+
 if (isnan(f) && (c)) {
       lcd.clear();
       lcd.setCursor(4,1);

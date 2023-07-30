@@ -42,3 +42,33 @@ volatile unsigned char* my_ADMUX = (unsigned char*) 0x7C;
 volatile unsigned char* my_ADCSRB = (unsigned char*) 0x7B;
 volatile unsigned char* my_ADCSRA = (unsigned char*) 0x7A;
 volatile unsigned int* my_ADC_DATA = (unsigned int*) 0x78;
+
+void setup() {
+
+  //Serial.begin(9600);
+  U0init(9600);
+  adc_init();
+
+  pinMode(buttonPin, INPUT);
+  pinMode(fanPin, OUTPUT);
+  pinMode(motorPin, INPUT);
+  pinMode(rPin, OUTPUT);
+  pinMode(gPin, OUTPUT);
+  pinMode(bPin, OUTPUT);
+  myStepper.setSpeed(200);
+
+
+
+  lcd.begin(16, 2);
+  lcd.setCursor(7,1);
+  lcd.print("---");
+  dht.begin();
+  DDRB |= (1 << 5);
+  
+
+  lcd.setCursor(0,0);
+  lcd.print("Temp:");
+  lcd.setCursor(0,1);
+  lcd.print("Humid:");
+  delay(1500);
+  }

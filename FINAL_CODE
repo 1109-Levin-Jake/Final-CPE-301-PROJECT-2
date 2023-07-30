@@ -72,3 +72,31 @@ void setup() {
   lcd.print("Humid:");
   delay(1500);
   }
+
+void loop() {
+
+  if(digitalRead(buttonPin)==HIGH){
+      buttonPressed = true;
+      delay(2000);
+  }
+  while(buttonPressed){
+    digitalWrite(gPin, HIGH);
+    digitalWrite(bPin, HIGH);
+    digitalWrite(rPin, LOW);
+    digitalWrite(fanPin, LOW);
+    motor_move();
+    if(digitalRead(buttonPin)==HIGH){
+      buttonPressed = false; 
+  }
+  }
+
+//set green light
+    digitalWrite(gPin, HIGH);
+    digitalWrite(bPin, LOW);
+    digitalWrite(rPin, LOW);
+    
+  unsigned int adc_value = adc_read(0);
+ if (digitalRead(motorPin) == HIGH)
+ {
+   motor_move();
+ }

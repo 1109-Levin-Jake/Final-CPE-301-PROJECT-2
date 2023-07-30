@@ -165,3 +165,48 @@ if (isnan(f) && (c)) {
   for (int i = 0; str[i] != '\0'; i++) {
     U0putchar(str[i]);
   }
+
+  if(adc_value < 100){
+    digitalWrite(gPin, LOW);
+    digitalWrite(bPin, LOW);
+    digitalWrite(rPin, HIGH);
+    delay(500);
+     // print the value over UART
+    char str[] = {'E','r','r','o','r', '-', 'W', 'a', 't', 'e', 'r', ‘ ‘,  ‘t’, ’o’, o’, ‘ ’, 'L', 'o', 'w', '\n'};
+    for (int i = 0; str[i] != '\0'; i++) {
+      U0putchar(str[i]);
+    }
+  }
+
+  if(c > 77 || c < 25){
+    digitalWrite(fanPin, HIGH);
+    digitalWrite(gPin, LOW);
+    digitalWrite(bPin, HIGH);
+    digitalWrite(rPin, LOW);
+    delay(500);
+
+  }else{
+      digitalWrite(fanPin, LOW);
+  
+  }
+
+  delay(400);
+  lcd.setCursor(15,1);
+  lcd.print(" ");
+  delay(50);
+  lcd.setCursor(14,1);
+  lcd.print(" ");
+  delay(50);
+  lcd.setCursor(13,1);
+  lcd.print(" ");
+  delay(50);
+  lcd.setCursor(13,0);
+  lcd.print(" ");
+  delay(50);
+  lcd.setCursor(14,0);
+  lcd.print(" ");
+  delay(50);
+  lcd.setCursor(15,0);
+  lcd.print(" ");
+  delay(50);
+}
